@@ -1,0 +1,102 @@
+﻿<Window x:Class="Dolgova.PartnerProductsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dolgova"
+        mc:Ignorable="d"
+        Title="PartnerProductsWindow" Height="700" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,10" Background="#FFBBDCFA">
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Тип партнёра:" Width="120" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <ComboBox x:Name="cbPartnerType" Width="200" DisplayMemberPath="Name" FontFamily="Bahnschrift Light SemiCondensed"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Наименование:" Width="120" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox x:Name="txtName" Width="200 " FontFamily="Bahnschrift Light SemiCondensed"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Директор:" Width="120" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox x:Name="txtDirector" Width="200" FontFamily="Bahnschrift Light SemiCondensed"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Адрес:" Width="120" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox x:Name="txtAddress" Width="200" FontFamily="Bahnschrift Light SemiCondensed"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Телефон:" Width="120" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox x:Name="txtPhone" Width="200" FontFamily="Bahnschrift Light SemiCondensed"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Email:" Width="120" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox x:Name="txtEmail" Width="200" FontFamily="Bahnschrift Light SemiCondensed"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="ИНН:" Width="120" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox x:Name="txtINN" Width="200" FontFamily="Bahnschrift Light SemiCondensed"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Рейтинг:" Width="120" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox x:Name="txtRating" Width="50" FontFamily="Bahnschrift Light SemiCondensed"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+
+            <GroupBox Header="Добавить продукцию" Padding="8" FontFamily="Bahnschrift Light SemiCondensed">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <ComboBox x:Name="cbProducts" Width="250" DisplayMemberPath="Name" SelectedValuePath="ID"/>
+                    <TextBlock Text="Количество:" VerticalAlignment="Center" Margin="10 0 5 0"/>
+                    <TextBox x:Name="txtQty" Width="80" Margin="10 0 0 0" />
+                    <Button Content="Добавить" Width="120" Margin="10 0 0 0"
+                            Background="#004B91" Foreground="White"
+                            Click="BtnAddProduct_Click"/>
+                </StackPanel>
+            </GroupBox>
+
+            <DataGrid x:Name="productsGrid" AutoGenerateColumns="False" Margin="0 10" CanUserAddRows="False" 
+          RowEditEnding="productsGrid_RowEditEnding" FontFamily="Bahnschrift Light SemiCondensed">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Продукт" Binding="{Binding ProductName}" Width="200"/>
+                    <DataGridTextColumn Header="Количество" Binding="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120"/>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="120"/>
+                    <DataGridTextColumn Header="Сумма" Binding="{Binding Total}" Width="120"/>
+                    <DataGridTemplateColumn Header="Удалить" Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="✖" Width="60" Click="DeleteProduct_Click" Background="Crimson" Foreground="White"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+        </StackPanel>
+        <TextBlock Grid.Row="2" x:Name="totalText" FontSize="16" FontWeight="Bold" Margin="0 5"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 10 0 0">
+            <Button x:Name="btnAddPartner" Content="Добавить" Width="110" Margin="3" Click="BtnAdd_Click" Background="#015C99" Foreground="White" FontFamily="Bahnschrift Light SemiCondensed"/>
+            <Button x:Name="btnSaveChanges" Content="Сохранить" Width="110" Margin="3" Click="BtnSave_Click" Background="#015C99" Foreground="White" FontFamily="Bahnschrift Light SemiCondensed"/>
+            <Button Content="Закрыть" Width="110" Margin="3" Background="#015C99" Foreground="White" Click="BtnClose_Click" FontFamily="Bahnschrift Light SemiCondensed"/>
+        </StackPanel>
+
+    </Grid>
+ 
+</Window>
+    

@@ -1,0 +1,45 @@
+﻿<Window x:Class="Dolgova.CalculationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dolgova"
+        mc:Ignorable="d"
+        Background="#FFBBDCFA"
+        Title="Расчет количества материала" Height="595" Width="800">
+    <StackPanel Margin="20,20,20,14">
+        <TextBlock Text="Расчет количества материала" FontFamily="Bahnschrift Light SemiCondensed" FontSize="36"/>
+
+        <TextBlock Text="Тип продукции" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <ComboBox x:Name="ProductTypeCombo" Height="30" Margin="0 5" FontFamily="Bahnschrift Light SemiCondensed"/>
+
+        <TextBlock Text="Тип материала" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <ComboBox x:Name="MaterialTypeCombo" Height="30" Margin="0 5" FontFamily="Bahnschrift Light SemiCondensed"/>
+
+        <TextBlock Text="Требуемое количество продукции" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <TextBox x:Name="RequiredAmountBox" Height="30" Margin="0 5" FontFamily="Bahnschrift Light SemiCondensed"/>
+
+        <TextBlock Text="Количество на складе" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <TextBox x:Name="StorageAmountBox" Height="30" Margin="0 5" FontFamily="Bahnschrift Light SemiCondensed"/>
+
+        <TextBlock Text="Параметр 1" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <TextBox x:Name="Param1Box" Height="30" Margin="0 5" FontFamily="Bahnschrift Light SemiCondensed"/>
+
+        <TextBlock Text="Параметр 2" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <TextBox x:Name="Param2Box" Height="30" Margin="0 5" FontFamily="Bahnschrift Light SemiCondensed"/>
+
+        <Button x:Name="CalculateButton"
+                Content="Рассчитать"
+                Height="40" Margin="0 10"
+                Click="CalculateButton_Click" FontFamily="Bahnschrift Light SemiCondensed" Background="#FF0C4882" Foreground="White"/>
+
+        <TextBlock Text="Результат:" FontWeight="Bold" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <TextBlock x:Name="ResultText" FontSize="24" Margin="0 10" FontFamily="Bahnschrift Light SemiCondensed"/>
+
+        <Button x:Name="BackButton"
+                Content="Назад"
+                Height="35" Width="100"
+                HorizontalAlignment="Left"
+                Click="BackButton_Click" FontFamily="Bahnschrift Light SemiCondensed" Foreground="White" Background="#FF0C4882"/>
+    </StackPanel>
+</Window>
